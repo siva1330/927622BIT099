@@ -1,5 +1,3 @@
-// src/pages/Heatmap.js
-
 import React, { useEffect, useState } from "react";
 import {
   Box,
@@ -51,6 +49,7 @@ const Heatmap = () => {
   const [loading, setLoading] = useState(false);
   const token = process.env.REACT_APP_API_TOKEN;
 
+  // Fetch stock list
   useEffect(() => {
     const fetchStocks = async () => {
       try {
@@ -65,6 +64,7 @@ const Heatmap = () => {
     fetchStocks();
   }, [token]);
 
+  // Fetch price data
   useEffect(() => {
     const fetchPrices = async () => {
       setLoading(true);
@@ -111,9 +111,11 @@ const Heatmap = () => {
       </Box>
 
       {loading ? (
-        <CircularProgress />
+        <Box display="flex" justifyContent="center" mt={4}>
+          <CircularProgress />
+        </Box>
       ) : (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ minHeight: 300 }}>
           <Table stickyHeader>
             <TableHead>
               <TableRow>
