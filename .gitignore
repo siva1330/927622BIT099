@@ -1,0 +1,11 @@
+# Ignore node_modules folders in all subdirectories
+**/node_modules/
+
+# Ignore .env files (sensitive configs)
+**/.env
+
+# Ignore macOS system files (safe to add even on Windows)
+.DS_Store
+
+# Log files
+*/npm-debug.log
